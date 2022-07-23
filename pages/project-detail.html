@@ -13,12 +13,16 @@
     <link rel="stylesheet" href="/dashboard.html">
 </head>
 <body>
+    <!-- <div class="loading" id="preloader">
+        <img src="img/loading2.gif" alt="">
+    </div> -->
+    <!-- <div class="afterloading" id="afterload"> -->
     <div class="container-fluid">
         <div class="container-fluid mt-4">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="../project.html">
-                        <img src="../images/back.svg" width="50px" height="50px" alt="">
+                    <a href="project.html">
+                        <img src="../img/back.svg" width="50px" height="50px" alt="">
                     </a>
                 </div>
             </div>
@@ -36,20 +40,11 @@
                     <h5 class="t card-title"></h5>
                     <p class="p card-text">
                     </p>
-                    <h5>Created By</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="../images/profile.png" width="40px" height="40px" alt="">
-                        </div>
-                        <div class="col-md-6" style="float: left;">
-                            <h5>Emile-SHUMBUSHO</h5>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- </div> -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
@@ -57,5 +52,18 @@
     <script src="../js/firebaseConfig.js"></script>
     <script src="../js/project-details.js"></script>
     <script src="../js/check-status.js"></script>
+
+    <!-- Splash Page -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script>  window.onload = setTimeout( function () {
+        const preloader = document.getElementById( "preloader" );
+        preloader.style.opacity = 0.1;
+        const afterload = document.getElementById( "afterload" );
+        preloader.style.display = "none";
+        afterload.style.display = "block";
+    }, 1000 );
+    </script> -->
+    <!-- End of splash Page -->
+
 </body>
 </html>

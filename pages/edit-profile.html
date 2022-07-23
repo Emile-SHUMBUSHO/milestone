@@ -11,65 +11,71 @@
     <title>Edit-Project</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="container-fluid mt-4">
-            <a href="./profile.html">
-                <img src="../images/back.svg" width="50px" height="50px" alt="">
-            </a>
-        </div>
-        <div class="container my-5">
-            
-            <div class="row">
-                <div class="col-md-12">
-                    <form class="update-form">
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="title" class="form-control title" id="inputTitle">
+    <!-- <div class="loading" id="preloader">
+        <img src="img/loading2.gif" alt="">
+    </div>
+    <div class="afterloading" id="afterload"> -->
+        <div class="container-fluid">
+            <div class="container-fluid mt-4">
+                <a href="./profile.html">
+                    <img src="../img/back.svg" width="50px" height="50px" alt="">
+                </a>
+            </div>
+            <div class="container my-5">
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="update-form">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="title" class="form-control title" id="inputTitle">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" class="form-control email" id="inputTitle">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="email" class="form-control email" id="inputTitle">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Telephone</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control telephone" name="telephone" id="inputTitle">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Telephone</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control telephone" name="telephone" id="inputTitle">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">address</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control address" name="address" id="inputTitle">
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">address</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control address" name="address" id="inputTitle">
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Description one</label>
-                            <div class="col-sm-10">
-                            <textarea class="form-control description-1" name="description1" id="inputDescrption" rows="3"></textarea>
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Description one</label>
+                                <div class="col-sm-10">
+                                <textarea class="form-control description-1" name="description1" id="inputDescrption" rows="3"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Description two</label>
-                            <div class="col-sm-10">
-                            <textarea class="form-control description-2" name="description2" id="inputDescrption" rows="3"></textarea>
+                            <div class="row mb-3">
+                                <label for="inputEmail3" class="col-sm-2 col-form-label">Description two</label>
+                                <div class="col-sm-10">
+                                <textarea class="form-control description-2" name="description2" id="inputDescrption" rows="3"></textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
-                            <div class="col-sm-10">
-                            <input type="file" name="image" class="form-control image" id="inputPhoto">
+                            <div class="row mb-3">
+                                <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
+                                <div class="col-sm-10">
+                                <input type="file" name="image" class="form-control image" id="inputPhoto">
+                                </div>
                             </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    <!-- </div> -->
+
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
@@ -77,5 +83,18 @@
     <script src="../js/firebaseConfig.js"></script>
     <script src="../js/edit-profile.js"></script>
     <script src="../js/check-status.js"></script>
+
+    <!-- Splash Page -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script>  window.onload = setTimeout( function () {
+        const preloader = document.getElementById( "preloader" );
+        preloader.style.opacity = 0.1;
+        const afterload = document.getElementById( "afterload" );
+        preloader.style.display = "none";
+        afterload.style.display = "block";
+    }, 1000 );
+    </script> -->
+    <!-- End of splash Page -->
+
 </body>
 </html>

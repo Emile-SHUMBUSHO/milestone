@@ -18,119 +18,141 @@
     <title>user dashboard</title>
 </head>
 <body>
-    <div class="container-fluid bg-dark">
-        <div class="row">
-            <div class="log col-md-2 my-2">
-                <span>ADMIN SECTION</span>
-            </div>
-            <div class="col-md-10 my-2">
-                <div class="icons">
-                    <img src="../img/message-solid.svg" alt="">
-                    <div id="sms">
-                        <span>5</span>
-                    </div>
-                    <a href="./profile.html"><img src="../img/prl.jpg" alt=""></a>
-                </div>
-            </div>
-        </div>
+    <div class="loading" id="preloader">
+        <img src="img/loading2.gif" alt="">
     </div>
-    <div class="wrapper">
-        <nav id="sidebar">
-            <ul class="list-unstyled components">
-                <p>User Dashboard</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="./edit-profile.html">About Us</a>
-                        </li>
-                        <li>
-                            <a href="../project.html">Services</a>
-                        </li>
-                        <li>
-                            <a href="./edit-project.html">Recent Project</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="../index.html">Home</a>
-                </li>
-                <li>
-                    <!-- <button id="logout">LogOut</button> -->
-                    <a href="" id="logout">Log Out</a>
-                </li>
-            </ul>
-        </nav>
-        <!-- content section -->
-        <div id="content" style="width:100%">
-            <div class="container-fluid">
-                <!-- toggle -->
-                <div class="row" style="background-color: #ffff;">
-                    <div class="col-md-12 my-4">
-                        <button type="button" id="sidebarCollapse" class="btn btn-info">
-                            <i class="fas fa-align-left"></i>
-                            <span>MENU</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- toggle end -->
-                <div class="row mt-5">
-                    <div class="col-md-12 bg-dark">
-                        <h6 class="my-4 text-center" style="color: #ffff;">Millestone&copy;2022</h6>
-                    </div>
-                </div>
-            </div>
-            <!-- end of page content -->
-        </div>
-    </div>
-    <!-- popup for a message -->
-    <div class="popup" id="popup">
-        <div class="overlay"></div>
-        <div class="popup-content">
-            <div class="controls">
-                <button class="close" style="display: none;"><img src="/images/times-circle-solid.svg" alt="close" id="closeBlog"></button>
-            </div>
-        </div>
-    </div>
-        <!-- jQuery CDN - Slim version (=without AJAX) -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <!-- Popper.JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-        <!-- Bootstrap JS -->
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-        <script>
-            $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
+    <div class="afterloading" id="afterload">
 
-            });
-        </script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="../js/firebaseConfig.js"></script>
-        <script src="../js/sign-out.js"></script>
-        <script src="../js/check-status.js"></script>
+        <div class="container-fluid bg-dark">
+            <div class="row">
+                <div class="log col-md-2 my-2">
+                    <span>ADMIN SECTION</span>
+                </div>
+                <div class="col-md-10 my-2">
+                    <div class="icons">
+                        <img src="../img/message-solid.svg" alt="">
+                        <div id="sms">
+                            <span>5</span>
+                        </div>
+                        <a href="./profile.html"><img src="../img/prl.jpg" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    <p>User Dashboard</p>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="./edit-profile.html">About Us</a>
+                            </li>
+                            <li>
+                                <a href="../project.html">Services</a>
+                            </li>
+                            <li>
+                                <a href="./project.html">Project</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="../index.html">Home</a>
+                    </li>
+                    <li>
+                        <!-- <button id="logout">LogOut</button> -->
+                        <a id="logout">Log Out</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- content section -->
+            <div id="content" style="width:100%">
+                <div class="container-fluid">
+                    <!-- toggle -->
+                    <div class="row" style="background-color: #ffff;">
+                        <div class="col-md-12 my-4">
+                            <button type="button" id="sidebarCollapse" class="btn btn-info">
+                                <i class="fas fa-align-left"></i>
+                                <span>MENU</span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- toggle end -->
+                    <div class="row mt-5">
+                        <div class="col-md-12 bg-dark">
+                            <h6 class="my-4 text-center" style="color: #ffff;">Millestone&copy;2022</h6>
+                        </div>
+                    </div>
+                </div>
+                <!-- end of page content -->
+            </div>
+        </div>
+        <!-- popup for a message -->
+        <div class="popup" id="popup">
+            <div class="overlay"></div>
+            <div class="popup-content">
+                <div class="controls">
+                    <button class="close" style="display: none;"><img src="/images/times-circle-solid.svg" alt="close" id="closeBlog"></button>
+                </div>
+            </div>
+        </div>
 
-        <script>
-            function createPopup(id){
-            let popupNode = document.querySelector(id);
-            let overlay = popupNode.querySelector(".overlay");
-            let closeBtn = popupNode.querySelector(".close");
-            function openPopup(){
-                popupNode.classList.add("active");
-            }
-            function closePopup(){
-                popupNode.classList.remove("active");
-            }
-            overlay.addEventListener("click", closePopup);
-            closeBtn.addEventListener("click",closePopup);
-            return openPopup;
-            }
-            let popup = createPopup("#popup");
-            document.querySelector("#sms").addEventListener("click",popup)
-        </script>
-        <script src="../js/message.js"></script>
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+
+        });
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="../js/firebaseConfig.js"></script>
+    <script src="../js/sign-out.js"></script>
+    <script src="../js/check-status.js"></script>
+
+    <script>
+        function createPopup(id){
+        let popupNode = document.querySelector(id);
+        let overlay = popupNode.querySelector(".overlay");
+        let closeBtn = popupNode.querySelector(".close");
+        function openPopup(){
+            popupNode.classList.add("active");
+        }
+        function closePopup(){
+            popupNode.classList.remove("active");
+        }
+        overlay.addEventListener("click", closePopup);
+        closeBtn.addEventListener("click",closePopup);
+        return openPopup;
+        }
+        let popup = createPopup("#popup");
+        document.querySelector("#sms").addEventListener("click",popup)
+    </script>
+    <script src="../js/message.js"></script>
+
+    <!-- Splash Page -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script>  window.onload = setTimeout( function () {
+        const preloader = document.getElementById( "preloader" );
+        preloader.style.opacity = 0.1;
+        const afterload = document.getElementById( "afterload" );
+        preloader.style.display = "none";
+        afterload.style.display = "block";
+    }, 1000 );
+    </script> -->
+    <!-- End of splash Page -->
+
 </body>
 </html>

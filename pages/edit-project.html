@@ -11,38 +11,44 @@
     <title>Edit-Project</title>
 </head>
 <body>
-    <div class="container-fluid">
-      <div class="container-fluid mt-4">
-        <a href="./dashboard.html">
-            <img src="../img/back.svg" width="50px" height="50px" alt="">
-        </a>
-    </div>
-        <div class="container my-5">
-            <div class="row">
-                <form class="update-form" id="">
-                    <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+    <!-- <div class="loading" id="preloader">
+        <img src="img/loading2.gif" alt="">
+    </div> -->
+    <!-- <div class="afterloading" id="afterload"> -->
+      <div class="container-fluid">
+        <div class="container-fluid mt-4">
+          <a href="./dashboard.html">
+              <img src="../img/back.svg" width="50px" height="50px" alt="">
+          </a>
+      </div>
+          <div class="container my-5">
+              <div class="row">
+                  <form class="update-form" id="">
+                      <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                          <div class="col-sm-10">
+                              <input type="name" name="title" class="form-control title">
+                          </div>
+                      </div>
+                      <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                         <div class="col-sm-10">
-                            <input type="name" name="title" class="form-control title">
+                          <textarea name="description" class="form-control description" rows="5"></textarea>
                         </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
-                      <div class="col-sm-10">
-                        <textarea name="description" class="form-control description" rows="5"></textarea>
                       </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
-                      <div class="col-sm-10">
-                        <input type="file" name="img" class="form-control" id="inputPhoto">
+                      <div class="row mb-3">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
+                        <div class="col-sm-10">
+                          <input type="file" name="img" class="form-control" id="inputPhoto">
+                        </div>
                       </div>
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-success">Update</button>
-                </form>
-            </div>
-        </div>
-    </div>          
+                      <button type="submit" name="submit" class="btn btn-success">Update</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+    <!-- </div> -->
+
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
@@ -50,5 +56,18 @@
     <script src="../js/firebaseConfig.js"></script>
     <script src="../js/edit-project.js"></script>
     <script src="../js/check-status.js"></script>
+
+    <!-- Splash Page -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- <script>  window.onload = setTimeout( function () {
+        const preloader = document.getElementById( "preloader" );
+        preloader.style.opacity = 0.1;
+        const afterload = document.getElementById( "afterload" );
+        preloader.style.display = "none";
+        afterload.style.display = "block";
+    }, 1000 );
+    </script> -->
+    <!-- End of splash Page -->
+
 </body>
 </html>
