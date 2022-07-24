@@ -30,6 +30,24 @@
       *::-moz-selection {
           background: none;
       }
+
+    /* Splash Page Style */
+        .loading {
+            background-color: #fffafa;
+            height: 100vh;
+        }
+        
+        .loading img {
+            top: 40%;
+            left: 40%;
+            position: absolute;
+        }
+        .afterloading {
+            display: none;
+        }
+    /* End of splash page style */
+
+    </style>
   </style>
 
   <!-- Favicons -->
@@ -43,7 +61,7 @@
 </head>
 
 <body id="page-top">
-    <div class="loading" id="preloader">
+     <div class="loading" id="preloader">
         <img src="img/loading2.gif" alt="">
     </div>
     <div class="afterloading" id="afterload"></div>
@@ -367,9 +385,6 @@
             </div>
         </footer>
         </section>
-
-    </div>
-
     <!-- JavaScript Libraries -->
     <script src="lib/jquery/jquery.min.js"></script>
     <script src="lib/jquery/jquery-migrate.min.js"></script>
@@ -379,7 +394,6 @@
     <script src="lib/counterup/jquery.counterup.js"></script>
     <script src="lib/typed/typed.min.js"></script>
     <!-- End of javascript Libraries -->
-
 
      <!-- UUID -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
@@ -393,8 +407,6 @@
      <script src="./front-End-Js/project.js"></script>
      <!-- <script src="./front-End-Js/message.js"></script> -->
      <script src="./front-End-Js/index.js"></script>
-
-
 
     <!-- External JS Libraries -->
     <script src="js/main.js"></script>
@@ -434,17 +446,17 @@
         }, false);
     </script>
 
-    <!-- Splash Page -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>  window.onload = setTimeout( function () {
-        const preloader = document.getElementById( "preloader" );
-        preloader.style.opacity = 0.1;
-        const afterload = document.getElementById( "afterload" );
-        preloader.style.display = "none";
-        afterload.style.display = "block";
-    }, 1000 );
-    </script>
-    <!-- End of splash Page -->
+   <!-- Splash Page -->
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+   <script>  window.onload = setTimeout( function () {
+       const preloader = document.getElementById( "preloader" );
+       preloader.style.opacity = 0.1;
+       const afterload = document.getElementById( "afterload" );
+       preloader.style.display = "none";
+       afterload.style.display = "block";
+   }, 1000 );
+   </script>
+   <!-- End of splash Page -->
 
 </body>
 </html>

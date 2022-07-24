@@ -80,97 +80,129 @@
       .col-md-4 img{
         height: 20rem;
       }
+
+    /* Splash Page Style */
+        .loading {
+            background-color: #fffafa;
+            height: 100vh;
+        }
+        
+        .loading img {
+            top: 40%;
+            left: 40%;
+            position: absolute;
+        }
+        .afterloading {
+            display: none;
+        }
+    /* End of splash page style */
+
     </style>
 </head>
 <body>
-      <div class="container-fluid">
-        <div class="container-fluid mt-4">
-          <div class="row">
-            <div class="col-md-6">
-              <a href="./dashboard.html">
-                <img src="./../img/back.svg" width="50px" height="50px" alt="">
-              </a>
-            </div>
-            <div class="col-md-6">
-              <div id="add" style="float:right;">
-                <img src="./../img/add.svg" width="50px" height="50px" alt="" >
-              </div>
+  <div class="loading" id="preloader">
+    <img src="../img/loading2.gif" alt="">
+  </div>
+  <div class="afterloading" id="afterload">
+    <div class="container-fluid">
+      <div class="container-fluid mt-4">
+        <div class="row">
+          <div class="col-md-6">
+            <a href="./dashboard.html">
+              <img src="./../img/back.svg" width="50px" height="50px" alt="">
+            </a>
+          </div>
+          <div class="col-md-6">
+            <div id="add" style="float:right;">
+              <img src="./../img/add.svg" width="50px" height="50px" alt="" >
             </div>
           </div>
         </div>
-        <!-- first-container -->
-            <div class="container mt-4">
-              <div class="project row">
-                
-              </div>
-            </div>
       </div>
+      <!-- first-container -->
+          <div class="container mt-4">
+            <div class="project row">
+              
+            </div>
+          </div>
+    </div>
+    <!-- popup for add project -->
+    <div class="popup" id="popup">
+      <div class="overlay"></div>
+      <div class="popup-content">
+          <div id="createProject">
+                <form class="add_project">
+                  <div class="row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                      <div class="col-sm-10">
+                          <input type="name" name="title" class="form-control" id="inputTitle">
+                      </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                      <textarea name="description" class="form-control" id="inputDescrption" rows="5"></textarea>
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
+                    <div class="col-sm-10">
+                      <input type="file" name="img" class="form-control" id="inputPhoto">
+                    </div>
+                  </div>
+                  <button type="submit" name="submit" class="btn btn-primary">Add</button>
+              </form>
+          </div>
+          <div class="controls">
+              <button class="close" style="display: none;"></button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <!-- UUID -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+  <script src="../js/firebaseConfig.js"></script>
+  <script src="../js/project-functions.js"></script>
+  <script src="../js/renderProject.js"></script>
+  <script src="../js/edit-pro-popup.js"></script>
+  <script>
+      add_project();
+  </script>
+  <script>
+    function createPopup(id){
+            let popupNode = document.querySelector(id);
+            let overlay = popupNode.querySelector(".overlay");
+            let closeBtn = popupNode.querySelector(".close");
+            function openPopup(){
+                popupNode.classList.add("active");
+            }
+            function closePopup(){
+                popupNode.classList.remove("active");
+            }
+            overlay.addEventListener("click", closePopup);
+            closeBtn.addEventListener("click",closePopup);
+            return openPopup;
+            }
+            let popup = createPopup("#popup");
+            document.querySelector("#add").addEventListener("click",popup)
+    </script>
+    <script src="./../js/check-status.js"></script>
 
-      <!-- popup for add project -->
-      <div class="popup" id="popup">
-        <div class="overlay"></div>
-        <div class="popup-content">
-            <div id="createProject">
-                  <form class="add_project">
-                    <div class="row mb-3">
-                        <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
-                        <div class="col-sm-10">
-                            <input type="name" name="title" class="form-control" id="inputTitle">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
-                      <div class="col-sm-10">
-                        <textarea name="description" class="form-control" id="inputDescrption" rows="5"></textarea>
-                      </div>
-                    </div>
-                    <div class="row mb-3">
-                      <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
-                      <div class="col-sm-10">
-                        <input type="file" name="img" class="form-control" id="inputPhoto">
-                      </div>
-                    </div>
-                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
-                </form>
-            </div>
-            <div class="controls">
-                <button class="close" style="display: none;"></button>
-            </div>
-        </div>
-      </div>
-      
-          <!-- UUID -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
-          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
-          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
-          <script src="../js/firebaseConfig.js"></script>
-          <script src="../js/project-functions.js"></script>
-          <script src="../js/renderProject.js"></script>
-          <script src="../js/edit-pro-popup.js"></script>
-          <script>
-            add_project();
-          </script>
-          <script>
-            function createPopup(id){
-                  let popupNode = document.querySelector(id);
-                  let overlay = popupNode.querySelector(".overlay");
-                  let closeBtn = popupNode.querySelector(".close");
-                  function openPopup(){
-                      popupNode.classList.add("active");
-                  }
-                  function closePopup(){
-                      popupNode.classList.remove("active");
-                  }
-                  overlay.addEventListener("click", closePopup);
-                  closeBtn.addEventListener("click",closePopup);
-                  return openPopup;
-                  }
-                  let popup = createPopup("#popup");
-                  document.querySelector("#add").addEventListener("click",popup)
-          </script>
-          <script src="./../js/check-status.js"></script>
+    <!-- Splash Page -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>  window.onload = setTimeout( function () {
+        const preloader = document.getElementById( "preloader" );
+        preloader.style.opacity = 0.1;
+        const afterload = document.getElementById( "afterload" );
+        preloader.style.display = "none";
+        afterload.style.display = "block";
+    }, 1000 );
+    </script>
+    <!-- End of splash Page -->
 </body>
 </html>

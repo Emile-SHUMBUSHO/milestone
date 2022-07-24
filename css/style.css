@@ -18,22 +18,6 @@
 	--buttonColor:black;
 }
 
-/* Splash Page Style */
-.loading {
-	background-color: #fffafa;
-	height: 100vh;
-  }
-  
-  .loading img {
-	top: 40%;
-	left: 40%;
-	position: absolute;
-  }
-  .afterloading {
-	display: none;
-  }
-/* End of splash page style */
-
 .s-one{
     background-color: var(--mainColor);
     border: 1px solid var(--borderColor);

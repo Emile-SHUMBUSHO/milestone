@@ -16,10 +16,27 @@
      <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
      <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     <title>user dashboard</title>
+    <style>
+        /* Splash Page Style */
+            .loading {
+                background-color: #fffafa;
+                height: 100vh;
+            }
+            
+            .loading img {
+                top: 40%;
+                left: 40%;
+                position: absolute;
+            }
+            .afterloading {
+                display: none;
+            }
+        /* End of splash page style */
+    </style>
 </head>
 <body>
     <div class="loading" id="preloader">
-        <img src="img/loading2.gif" alt="">
+        <img src="../img/loading2.gif" alt="">
     </div>
     <div class="afterloading" id="afterload">
 
@@ -144,14 +161,14 @@
 
     <!-- Splash Page -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!-- <script>  window.onload = setTimeout( function () {
+    <script>  window.onload = setTimeout( function () {
         const preloader = document.getElementById( "preloader" );
         preloader.style.opacity = 0.1;
         const afterload = document.getElementById( "afterload" );
         preloader.style.display = "none";
         afterload.style.display = "block";
     }, 1000 );
-    </script> -->
+    </script>
     <!-- End of splash Page -->
 
 </body>
