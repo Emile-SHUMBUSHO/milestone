@@ -29,7 +29,7 @@ const add_project = function(){
                     e.target.elements.title.value = '';
                     e.target.elements.description.value = '';
                     e.target.elements.img.files[0] = '';
-                    location.assign(`../pages/project-details.html#${ProjectId}`);
+                    location.assign(`./pages/project-details.html#${ProjectId}`);
                 }).catch(function(error){
                     alert(`Error: Writind document${error}`);
                 })
